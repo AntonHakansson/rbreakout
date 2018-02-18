@@ -1,0 +1,9 @@
+[package]
+name = "rbreakout"
+version = "0.1.0"
+authors = ["AntonHakansson <anton.hakansson98@gmail.com>"]
+
+[dependencies]
+argparse = "*"
+rand = "*"
+termion = "*"
