@@ -27,10 +27,12 @@ mod graphics {
                                         ║       <space>  begin         ║\n\
                                         ║       q        quit          ║\n\
                                         ║                              ║\n\
-                                        ║       h    Move left         ║\n\
-                                        ║       l    Move left         ║\n\
+                                        ║  Controls                    ║\n\
+                                        ║       h    move left         ║\n\
+                                        ║       l    move left         ║\n\
+                                        ║       q    quit              ║\n\
+                                        ║       r    reset             ║\n\
                                         ║                              ║\n\
-                                        ║  *Press 'q' in-game to quit  ║\n\
                                         ╚══════════════════════════════╝";
     pub const GAME_OVER: &str = "╔═════════════════╗\n\
                                  ║──  GAME OVER  ──║\n\
@@ -386,6 +388,7 @@ impl<R: Read, W: Write> BreakoutGame<R, W> {
 
         match key_bytes[0] {
             b'q' => return false,
+            b'r' => self.reset_game(),
             b'h' | b'a' => self.peddle.move_in_dir(Direction::LEFT, self.width),
             b'l' | b'd' => self.peddle.move_in_dir(Direction::RIGHT, self.width),
             _ => {}
@@ -403,7 +406,7 @@ impl<R: Read, W: Write> BreakoutGame<R, W> {
     }
 
     fn game_won_screen(&mut self) -> bool {
-        self.yes_no_dialog(graphics::GAME_WIN, Box::new(color::Red), 'r', 'q')
+        self.yes_no_dialog(graphics::GAME_WIN, Box::new(color::Green), 'r', 'q')
     }
 
     fn yes_no_dialog(
