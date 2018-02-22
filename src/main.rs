@@ -30,8 +30,8 @@ mod graphics {
                                         ║  Controls                    ║\n\
                                         ║       h    move left         ║\n\
                                         ║       l    move left         ║\n\
-                                        ║       q    quit              ║\n\
                                         ║       r    reset             ║\n\
+                                        ║       q    quit              ║\n\
                                         ║                              ║\n\
                                         ╚══════════════════════════════╝";
     pub const GAME_OVER: &str = "╔═════════════════╗\n\
