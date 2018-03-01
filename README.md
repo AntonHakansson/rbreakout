@@ -1,5 +1,10 @@
-# rbreakout
- A Breakout clone written in Rust
+# rbreakout [![][img_license]](#license) [![][img_loc]][loc]
+
+[img_license]: https://img.shields.io/badge/License-MIT_or_Apache_2.0-blue.svg
+[img_loc]: https://tokei.rs/b1/github/AntonHakansson/rbreakout
+[loc]: https://github.com/Aaronepower/tokei
+
+A Breakout clone written in Rust
 
 ![rbreakout](https://user-images.githubusercontent.com/15860608/36357650-523b7d9a-1501-11e8-961c-b82835b1fe31.gif)
 
