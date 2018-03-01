@@ -153,9 +153,10 @@ impl Ball {
         if (self.x() >= player_pos.0 && self.x() <= player_pos.0 + Peddle::get_width())
             && self.y() == player_pos.1
         {
-            self.vel.1 *= -1f32;
             let xoffset = self.game_pos.0 - (player_pos.0 + Peddle::get_width() / 2 as Unit) as f32;
-            self.vel.0 += 0.4 * (xoffset / (Peddle::get_width() / 2) as f32);
+            self.vel.0 = xoffset/10f32;
+            self.vel.1 = -1f32;
+            self.normalize_vel();
         }
 
         self.game_pos.0 += self.vel.0;
@@ -212,6 +213,15 @@ impl Ball {
             Direction::LEFT | Direction::RIGHT => self.vel.0 *= -1f32,
             Direction::UP | Direction::DOWN => self.vel.1 *= -1f32,
         }
+    }
+
+    fn normalize_vel(&mut self) {
+        let magnitude: f32 = (self.vel.0*self.vel.0 + self.vel.1*self.vel.1).sqrt();
+        self.vel.0 /= magnitude;
+        self.vel.1 /= magnitude;
+
+        self.vel.0 *= 0.4;
+        self.vel.1 *= 0.4;
     }
 }
 
